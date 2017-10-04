@@ -1,4 +1,4 @@
-# FlexionCodeReview
+﻿# FlexionCodeReview
 Developer Coding Challenge Submission
 
 ## The Problem: 
@@ -18,4 +18,4 @@ The program responds with the most specific triangle classification that applies
 
 ## References
 * [Source of triangle equations implemented](https://www.mathsisfun.com/algebra/trig-solving-sss-triangles.html)
-..* https://www.mathsisfun.com/algebra/trig-solving-sss-triangles.html
+⋅⋅*  https://www.mathsisfun.com/algebra/trig-solving-sss-triangles.html
