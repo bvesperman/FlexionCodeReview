@@ -18,6 +18,8 @@ namespace GeometricObjects
             _sides.Add(sideC);
 
             CalculateAngles();
+
+            determineTriangleType();
         }
 
         public void CalculateAngles()
@@ -31,6 +33,19 @@ namespace GeometricObjects
         {
             get { return _type; }
         }
+
+
+        public  bool IsValidTriangle()
+        {
+            double total = 0.0;
+            foreach(double angle in _angles)
+            {
+                total += angle;
+            }
+
+            return (total < 180.0000001 && total > 179.99999);
+        }
+
         /// <summary>
         /// calculates the angle of the triangle that is between sides b and c
         /// </summary>
@@ -43,20 +58,31 @@ namespace GeometricObjects
             double numerator = Math.Pow(sideB, 2) + Math.Pow(sideC, 2) - Math.Pow(sideA, 2);
             double denominator = 2 * sideB * sideC;
 
-            double angle = Math.Acos(numerator/ denominator) * (180 / Math.PI);
+            double angle = Math.Acos(numerator / denominator) * (180 / Math.PI);
 
             return angle;
         }
 
-        public  bool IsValidTriangle()
+        private void determineTriangleType()
         {
-            double total = 0.0;
-            foreach(double angle in _angles)
+           int totalEqualSides = IsDoubleEquals(_sides[0], _sides[1]) + IsDoubleEquals(_sides[1], _sides[2]) + IsDoubleEquals(_sides[2], _sides[0]);
+            switch(totalEqualSides)
             {
-                total += angle;
+                case 0:
+                    _type = TriangleTypes.Scalene;
+                    break;
+                case 1:
+                    _type = TriangleTypes.Isosceles;
+                    break;
+                case 3:
+                    _type = TriangleTypes.Equilateral;
+                    break; 
             }
 
-            return (total < 180.0000001 && total > 179.99999);
+            if (double.IsNaN(_angles[0]) || double.IsNaN(_angles[1]) || double.IsNaN(_angles[2]))
+                _type = TriangleTypes.NotATriangle;
         }
+
+        
     }
 }

@@ -16,7 +16,7 @@ namespace GeometricObjects.Tests
         public void IsSideValidTest()
         {
             Assert.IsTrue(Shape.IsSideValid("1"));
-            Assert.IsTrue(Shape.IsSideValid(".000001"));
+            Assert.IsTrue(Shape.IsSideValid(".001"));
             Assert.IsTrue(Shape.IsSideValid("1.00"));
             Assert.IsTrue(Shape.IsSideValid("1.11"));
             Assert.IsTrue(Shape.IsSideValid("3023492340.00"));

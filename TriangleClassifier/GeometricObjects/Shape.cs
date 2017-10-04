@@ -15,8 +15,14 @@ namespace GeometricObjects
             {
                 return false;
             }
-            return sideVal > 0.0000000000001;
+            return sideVal > 0.00001;
 
+        }
+
+        static public int IsDoubleEquals(double a, double b)
+        {
+            double difference = Math.Abs(a * 0.00001);
+            return Convert.ToInt16( (Math.Abs(a - b) <= difference));
         }
     }
 }

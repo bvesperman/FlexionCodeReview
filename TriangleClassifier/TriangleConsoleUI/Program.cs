@@ -7,15 +7,18 @@ namespace TriangleConsoleUI
     {
         static public void Main(string[] args)
         {
-            double validatedInput;
+            double side1, side2, side3;
 
             Console.WriteLine(UIPrompts.Welcome);
 
-            validatedInput = GetASide(UIPrompts.side1);
-            validatedInput = GetASide(UIPrompts.side2);
-            validatedInput = GetASide(UIPrompts.side3);
+            side1 = GetASide(UIPrompts.side1);
+            side2 = GetASide(UIPrompts.side2);
+            side3 = GetASide(UIPrompts.side3);
 
-            Console.WriteLine("Not a hotdog!");
+
+            Triangle myTri = new Triangle(side1, side2, side3);
+
+            Console.WriteLine("This triangle is classified as: " + myTri.Type.ToString());
             Console.WriteLine(UIPrompts.exit);
             Console.ReadLine();
         }
