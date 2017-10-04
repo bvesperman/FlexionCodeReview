@@ -12,7 +12,7 @@ namespace TriangleConsoleUI
 Please enter the lengths of three sides of a triangle and the system will respond with the type of triangle.
    We assume the same units for each side. So only enter decimal numbers.";
 
-        public const string exit = @"(Press and key to exit)";
+        public const string exit = @"(Press enter key to exit)";
 
         public const string side1 = @"Side 1: ";
         public const string side2 = @"Side 2: ";

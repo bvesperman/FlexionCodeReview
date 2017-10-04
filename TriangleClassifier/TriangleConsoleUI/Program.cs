@@ -2,9 +2,9 @@
 
 namespace TriangleConsoleUI
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        static public void Main(string[] args)
         {
             string input;
             decimal validatedInput;
@@ -43,7 +43,7 @@ namespace TriangleConsoleUI
 
             Console.WriteLine("Not a hotdog!");
             Console.WriteLine(UIPrompts.exit);
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }
