@@ -7,3 +7,7 @@ Our users, who are as comfortable using the command line as they are using a bro
 ## Functional Requirements:
 The user must be able to submit three numbers that represent the lengths of line segments.
 The program responds with the most specific triangle classification that applies to the three lengths, including: scalene, equilateral, isosceles, not a triangle.
+
+## References
+* Source of triangle equations implemented
+** https://www.mathsisfun.com/algebra/trig-solving-sss-triangles.html
