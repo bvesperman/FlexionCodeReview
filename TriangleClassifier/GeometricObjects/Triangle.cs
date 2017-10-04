@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace GeometricObjects
 {
+    /// <summary>
+    /// An explicit implementation of the geometric shape of a triangle
+    /// </summary>
     public class Triangle: Shape
     {
         private TriangleTypes _type;
         protected List<double> _angles = new List<double>();
 
+        /// <summary>
+        /// Constructor that takes three lengths of the side of a triangle
+        /// </summary>
+        /// <param name="sideA"></param>
+        /// <param name="sideB"></param>
+        /// <param name="sideC"></param>
         public Triangle(double sideA, double sideB, double sideC)
         {
             _sides.Add(sideA);
@@ -22,6 +31,9 @@ namespace GeometricObjects
             determineTriangleType();
         }
 
+        /// <summary>
+        /// calculates the angles between the sides of a triangle
+        /// </summary>
         public void CalculateAngles()
         {
             _angles.Add(solveAngleFromSides(_sides[0], _sides[1], _sides[2]));
@@ -29,12 +41,18 @@ namespace GeometricObjects
             _angles.Add(solveAngleFromSides(_sides[2], _sides[0], _sides[1]));
         }
 
+        /// <summary>
+        /// enum representing the type of a triange
+        /// </summary>
         public TriangleTypes Type
         {
             get { return _type; }
         }
 
-
+        /// <summary>
+        /// Checks that the angles inside the shape is 180 degrees.
+        /// </summary>
+        /// <returns></returns>
         public  bool IsValidTriangle()
         {
             double total = 0.0;
@@ -63,6 +81,9 @@ namespace GeometricObjects
             return angle;
         }
 
+        /// <summary>
+        /// evaluates the properties of a triangle and sets the type of triangle it is.
+        /// </summary>
         private void determineTriangleType()
         {
            int totalEqualSides = IsDoubleEquals(_sides[0], _sides[1]) + IsDoubleEquals(_sides[1], _sides[2]) + IsDoubleEquals(_sides[2], _sides[0]);
@@ -79,7 +100,7 @@ namespace GeometricObjects
                     break; 
             }
 
-            if (double.IsNaN(_angles[0]) || double.IsNaN(_angles[1]) || double.IsNaN(_angles[2]))
+            if (!IsValidTriangle())
                 _type = TriangleTypes.NotATriangle;
         }
 

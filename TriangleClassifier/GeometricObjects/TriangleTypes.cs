@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GeometricObjects
 {
+    /// <summary>
+    /// Enum that represents the types of a triangle
+    /// </summary>
     public enum TriangleTypes
     {
         Equilateral,

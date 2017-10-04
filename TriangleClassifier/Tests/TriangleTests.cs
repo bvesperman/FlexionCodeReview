@@ -16,12 +16,16 @@ namespace GeometricObjects.Tests
         {
             Triangle myTri = new Triangle(1.5, 1.5, 1.5);
             Assert.IsTrue(myTri.IsValidTriangle());
+            Assert.AreEqual(myTri.Type, TriangleTypes.Equilateral);
             myTri = new Triangle(3, 4, 4);
             Assert.IsTrue(myTri.IsValidTriangle());
+            Assert.AreEqual(myTri.Type, TriangleTypes.Isosceles);
             myTri = new Triangle(4.4, 7.3, 9.1);
             Assert.IsTrue(myTri.IsValidTriangle());
+            Assert.AreEqual(myTri.Type, TriangleTypes.Scalene);
             myTri = new Triangle(4, 6, 11);
             Assert.IsFalse(myTri.IsValidTriangle());
+            Assert.AreEqual(myTri.Type, TriangleTypes.NotATriangle);
         }
     }
 }

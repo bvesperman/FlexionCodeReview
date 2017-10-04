@@ -11,18 +11,23 @@ namespace TriangleConsoleUI
 
             Console.WriteLine(UIPrompts.Welcome);
 
+            // collect the sides of the triangle from the user
             side1 = GetASide(UIPrompts.side1);
             side2 = GetASide(UIPrompts.side2);
             side3 = GetASide(UIPrompts.side3);
 
-
             Triangle myTri = new Triangle(side1, side2, side3);
 
-            Console.WriteLine("This triangle is classified as: " + myTri.Type.ToString());
+            Console.WriteLine(UIPrompts.TriangleDescription + myTri.Type.ToString());
             Console.WriteLine(UIPrompts.exit);
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// get the sides of the triangle from the user and does some basic checking and prompting of the user
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns>a side of the triangle</returns>
         static double GetASide(string prompt)
         {
             string input;
