@@ -11,15 +11,17 @@ namespace TriangleConsoleUI
 
             Console.WriteLine(UIPrompts.Welcome);
 
-            Console.Write(UIPrompts.side1);
-            input = Console.ReadLine();
+            validatedInput = GetASide(UIPrompts.side1);
 
-            while(!decimal.TryParse(input, out validatedInput))
-            {
-                Console.WriteLine(UIPrompts.invalidInput);
-                Console.Write(UIPrompts.side1);
-                input = Console.ReadLine();
-            }
+            //Console.Write(UIPrompts.side1);
+            //input = Console.ReadLine();
+
+            //while(!decimal.TryParse(input, out validatedInput))
+            //{
+            //    Console.WriteLine(UIPrompts.invalidInput);
+            //    Console.Write(UIPrompts.side1);
+            //    input = Console.ReadLine();
+            //}
 
             Console.Write(UIPrompts.side2);
             input = Console.ReadLine();
@@ -44,6 +46,24 @@ namespace TriangleConsoleUI
             Console.WriteLine("Not a hotdog!");
             Console.WriteLine(UIPrompts.exit);
             Console.ReadLine();
+        }
+
+        static decimal GetASide(string prompt)
+        {
+            string input;
+            decimal validatedInput;
+
+            Console.Write(prompt);
+            input = Console.ReadLine();
+
+            while (!decimal.TryParse(input, out validatedInput))
+            {
+                Console.WriteLine(UIPrompts.invalidInput);
+                Console.Write(prompt);
+                input = Console.ReadLine();
+            }
+
+            return validatedInput;
         }
     }
 }
