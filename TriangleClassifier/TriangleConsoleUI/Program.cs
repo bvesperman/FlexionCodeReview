@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeometricObjects;
+using System;
 
 namespace TriangleConsoleUI
 {
@@ -6,63 +7,34 @@ namespace TriangleConsoleUI
     {
         static public void Main(string[] args)
         {
-            string input;
-            decimal validatedInput;
+            double validatedInput;
 
             Console.WriteLine(UIPrompts.Welcome);
 
             validatedInput = GetASide(UIPrompts.side1);
-
-            //Console.Write(UIPrompts.side1);
-            //input = Console.ReadLine();
-
-            //while(!decimal.TryParse(input, out validatedInput))
-            //{
-            //    Console.WriteLine(UIPrompts.invalidInput);
-            //    Console.Write(UIPrompts.side1);
-            //    input = Console.ReadLine();
-            //}
-
-            Console.Write(UIPrompts.side2);
-            input = Console.ReadLine();
-
-            while (!decimal.TryParse(input, out validatedInput))
-            {
-                Console.WriteLine(UIPrompts.invalidInput);
-                Console.Write(UIPrompts.side2);
-                input = Console.ReadLine();
-            }
-
-            Console.Write(UIPrompts.side3);
-
-            input = Console.ReadLine();
-            while (!decimal.TryParse(input, out validatedInput))
-            {
-                Console.WriteLine(UIPrompts.invalidInput);
-                Console.Write(UIPrompts.side3);
-                input = Console.ReadLine();
-            }
+            validatedInput = GetASide(UIPrompts.side2);
+            validatedInput = GetASide(UIPrompts.side3);
 
             Console.WriteLine("Not a hotdog!");
             Console.WriteLine(UIPrompts.exit);
             Console.ReadLine();
         }
 
-        static decimal GetASide(string prompt)
+        static double GetASide(string prompt)
         {
             string input;
-            decimal validatedInput;
+            double validatedInput;
 
             Console.Write(prompt);
             input = Console.ReadLine();
 
-            while (!decimal.TryParse(input, out validatedInput))
+            while (!Shape.IsSideValid(input))
             {
                 Console.WriteLine(UIPrompts.invalidInput);
                 Console.Write(prompt);
                 input = Console.ReadLine();
             }
-
+            validatedInput = double.Parse(input);
             return validatedInput;
         }
     }

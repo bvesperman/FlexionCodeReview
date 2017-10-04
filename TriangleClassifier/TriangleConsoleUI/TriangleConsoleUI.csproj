@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GeometricObjects\GeometricObjects.csproj">
+      <Project>{A5955D5B-EE9D-4575-88E6-EF51F82FA813}</Project>
+      <Name>GeometricObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

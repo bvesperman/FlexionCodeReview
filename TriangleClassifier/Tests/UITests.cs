@@ -8,7 +8,7 @@ namespace Tests
     [TestClass()]
     public class UITests
     {
-        [TestMethod(),Timeout(5000)]
+        [TestMethod(),Timeout(15000)]
         public void ConsoleBasicFunctionallity()
         {
             string testdata = 

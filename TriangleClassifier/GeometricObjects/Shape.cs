@@ -5,10 +5,18 @@ namespace GeometricObjects
 {
     public class Shape
     {
-        private List<double> _sides = new List<double>();
-        public int TestStub ()
+        protected List<double> _sides = new List<double>();
+
+
+        static public bool IsSideValid(string side)
         {
-            return 0;
+            double sideVal;
+            if (!double.TryParse(side,out sideVal))
+            {
+                return false;
+            }
+            return sideVal > 0.0000000000001;
+
         }
     }
 }
